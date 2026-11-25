@@ -1,0 +1,14 @@
+OTAKUCLOUD 2.0 - ACTUALIZAR SIN PERDER DATOS
+
+1. Guarda una copia de la carpeta C:\xampp\htdocs\otakucloud y exporta tu base de datos desde phpMyAdmin como respaldo.
+2. Descomprime este ZIP. Copia la carpeta otakucloud a C:\xampp\htdocs\ y reemplaza los archivos del sistema anterior. Conserva config/local.php si lo creaste, y cualquier portada personalizada. No elimines la base de datos.
+3. En XAMPP, activa Apache y MySQL. En http://localhost/phpmyadmin/ selecciona otakucloud en el menu izquierdo, elige Importar y abre database/actualizacion_v2.sql. No importes otakucloud.sql ni datos_prueba.sql si ya existen las tablas.
+4. Abre http://localhost/otakucloud/ y usa Ctrl+F5 para recargar el CSS. Encontraras el nuevo dashboard, catalogo y biblioteca.
+5. Para tener un administrador, registra una cuenta separada mediante la pantalla de registro normal y cierra sesion. En phpMyAdmin selecciona otakucloud > SQL y ejecuta (sustituye el correo por tu cuenta):
+   UPDATE usuarios SET rol='admin' WHERE correo='admin@ejemplo.com';
+6. Entra a http://localhost/otakucloud/acceso-admin.php con ese correo y su contrasena. No hay credenciales predeterminadas. Solo las cuentas activas con rol admin pasan el control de acceso.
+7. Comprueba que tus registros previos siguen alli, que los manhwas aparecen y que un usuario normal no puede entrar al panel.
+
+Instalacion nueva: importa primero database/otakucloud.sql, luego datos_prueba.sql y finalmente actualizacion_v2.sql (en ese orden).
+El catalogo base completo contiene 23 obras (17 manhwas) si no hay modificaciones previas. Las obras reales usan cubiertas graficas no oficiales; las ficticias usan ilustraciones originales. El progreso se calcula sobre los capitulos de muestra registrados, no el total oficial publicado. No aloja lecturas ni videos.
+Las estadisticas administrativas se calculan desde MySQL; no se inventan cifras. La actualizacion no agrega tablas ni elimina datos.
